@@ -11,7 +11,7 @@
 
 
     <properties>
-        <!-- Java 8 -->
+        <!-- Java 8  -->
         <java.version>1.8</java.version>
         <compiler.target.version>${java.version}</compiler.target.version>
         <compiler.source.version>${java.version}</compiler.source.version>
