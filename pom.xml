@@ -9,9 +9,8 @@
     <artifactId>Lesson_3_test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
     <properties>
-        <!-- Java 8  -->
+        <!-- Java 8 -->
         <java.version>1.8</java.version>
         <compiler.target.version>${java.version}</compiler.target.version>
         <compiler.source.version>${java.version}</compiler.source.version>
@@ -21,9 +20,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <allure.version>2.13.2</allure.version>
         <allure-maven.version>2.10.0</allure-maven.version>
-        <selenide.version>6.3.0</selenide.version>
+        <selenide.version>5.18.0</selenide.version>
         <jumit.platform.version>1.7.2</jumit.platform.version>
-        <junit.jupiter.version>5.8.2</junit.jupiter.version>
+        <junit.jupiter.version>5.7.0</junit.jupiter.version>
         <junit.vintage.version>5.7.0</junit.vintage.version>
         <restAssured.version>4.2.0</restAssured.version>
         <log4j.version>1.2.17</log4j.version>
@@ -118,12 +117,6 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
