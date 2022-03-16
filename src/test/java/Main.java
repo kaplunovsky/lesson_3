@@ -13,6 +13,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class Main {
     String login = "kapOleg";
     String password = "123qaz!@#QAZ";
+    String Status = "ГОТОВО";
 
     @BeforeAll
     static void Test_Open() {
@@ -39,7 +40,20 @@ public class Main {
         Selenide.open("https://edujira.ifellow.ru/secure/RapidBoard.jspa?rapidView=1&projectKey=TEST&view=planning", MainPage.class)
                 .isOpened()
                 .checkValue();
-
     }
+
+    @Test
+    public void Test2() {
+        Selenide.open("https://edujira.ifellow.ru/login.jsp" , AutorizationPage.class)
+                .clicButtonLogIn()
+                .clicButtonPassword()
+                .clicButtonIn();
+        Selenide.open("https://edujira.ifellow.ru/secure/RapidBoard.jspa?rapidView=1&projectKey=TEST&view=planning", MainPage.class)
+                .isOpened()
+                .CreateTask()
+                .ChangeStatus()
+                .AssertValue(Status);
+    }
+
 
 }
