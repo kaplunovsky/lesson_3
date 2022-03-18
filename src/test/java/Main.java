@@ -34,8 +34,8 @@ public class Main {
     @Test
     public void Test1() {
         Selenide.open("https://edujira.ifellow.ru/login.jsp" , AutorizationPage.class)
-                .clicButtonLogIn()
-                .clicButtonPassword()
+                .clicButtonLogIn(login)
+                .clicButtonPassword(password)
                 .clicButtonIn();
         Selenide.open("https://edujira.ifellow.ru/secure/RapidBoard.jspa?rapidView=1&projectKey=TEST&view=planning", MainPage.class)
                 .isOpened()
@@ -45,8 +45,8 @@ public class Main {
     @Test
     public void Test2() {
         Selenide.open("https://edujira.ifellow.ru/login.jsp" , AutorizationPage.class)
-                .clicButtonLogIn()
-                .clicButtonPassword()
+                .clicButtonLogIn(login)
+                .clicButtonPassword(password)
                 .clicButtonIn();
         Selenide.open("https://edujira.ifellow.ru/secure/RapidBoard.jspa?rapidView=1&projectKey=TEST&view=planning", MainPage.class)
                 .isOpened()
@@ -54,6 +54,5 @@ public class Main {
                 .ChangeStatus()
                 .AssertValue(Status);
     }
-
 
 }

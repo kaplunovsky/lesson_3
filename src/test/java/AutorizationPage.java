@@ -4,7 +4,7 @@ import org.openqa.selenium.support.How;
 
 import static com.codeborne.selenide.Selenide.page;
 
-public class AutorizationPage extends Main {
+public class AutorizationPage  {
 
     @FindBy(how = How.XPATH, using = "//input[@id='login-form-username']")
     private SelenideElement fldLogin;
@@ -18,12 +18,12 @@ public class AutorizationPage extends Main {
     @FindBy(how = How.XPATH, using = "//*[@id='login-form-cancel']")
     private SelenideElement btnCantIn;
 
-    public AutorizationPage clicButtonLogIn() {
+    public AutorizationPage clicButtonLogIn(String login) {
         fldLogin.click();
         fldLogin.sendKeys(login);
         return page(AutorizationPage.class);
     }
-    public AutorizationPage clicButtonPassword() {
+    public AutorizationPage clicButtonPassword(String password) {
         fldPassword.click();
         fldPassword.sendKeys(password);
         return page(AutorizationPage.class);
