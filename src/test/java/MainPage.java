@@ -1,12 +1,13 @@
 import com.codeborne.selenide.SelenideElement;
-//import com.sun.org.apache.bcel.internal.generic.RETURN;
+import io.qameta.allure.Step;
 import org.junit.Assert;
+//import org.apache.logging.log4j.core.util.Assert;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.Keys;
 
 import java.util.List;
 
@@ -71,6 +72,7 @@ public class MainPage {
         return page(MainPage.class);
     }
 
+    @Step("Проверка количества задач d шапке/списке {HeadValue}/{ListValue}")
     public MainPage checkValue(){
         int HeadValue = Integer.parseInt(TaskCount.text().split(" ")[0]);
         int ListValue = listTask.size();
@@ -81,6 +83,7 @@ public class MainPage {
         return page(MainPage.class);
     }
 
+    @Step("Создание задачи. Summary: {SummaryText}")
     public MainPage CreateTask(){
 
         btnCreate.click();
@@ -94,6 +97,7 @@ public class MainPage {
         return page(MainPage.class);
     }
 
+    @Step("Изменения статусов.")
     public MainPage ChangeStatus(){
         navTasks.click();
         lnkNewSearch.click();
@@ -107,10 +111,10 @@ public class MainPage {
         return page(MainPage.class);
     }
 
-
-    public MainPage AssertValue(String value) {
+    @Step("Проверка статуса {statusvalue}")
+    public MainPage AssertValue(String statusvalue) {
         sleep(1000);
-        Assertions.assertEquals(assertValue.text(), value);
+        Assertions.assertEquals(assertValue.text(), statusvalue);
         System.out.println("Статус: " + assertValue.text());
         return page(MainPage.class);
     }

@@ -1,5 +1,9 @@
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.BeforeClass;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,6 +18,15 @@ public class Main {
     String login = "kapOleg";
     String password = "123qaz!@#QAZ";
     String Status = "ГОТОВО";
+
+    @BeforeClass
+    public static void before(){
+        SelenideLogger.addListener("AllureSelenide",
+                new AllureSelenide().
+                        screenshots(true).
+                        savePageSource(false)
+                );
+    }
 
     @BeforeAll
     static void Test_Open() {
@@ -32,6 +45,7 @@ public class Main {
 
 
     @Test
+    @DisplayName("Проверка количества задач")
     public void Test1() {
         Selenide.open("https://edujira.ifellow.ru/login.jsp" , AutorizationPage.class)
                 .clicButtonLogIn(login)
@@ -43,6 +57,7 @@ public class Main {
     }
 
     @Test
+    @DisplayName("Создание задачи. Изменение статусов.")
     public void Test2() {
         Selenide.open("https://edujira.ifellow.ru/login.jsp" , AutorizationPage.class)
                 .clicButtonLogIn(login)
